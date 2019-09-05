@@ -1,0 +1,184 @@
+import 'package:flutter/material.dart';
+
+class LoginPage extends StatelessWidget {
+
+ @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Container(
+               padding: EdgeInsets.only(
+                   top: 60,
+                   left: 40,
+                   right: 40,
+                 ),
+          color: Colors.white,
+          child: ListView(
+              children: <Widget>[
+                SizedBox(
+                    width: 128,
+                    height: 128,
+                    child: Image.asset("assets/logo.png"),
+              ),
+          SizedBox( height: 20 ),
+           campoLogin
+          ,
+          SizedBox( height: 10 ),
+          campoPassword
+          ,
+          Container(
+              height: 40,
+              alignment: Alignment.centerRight,
+              child: FlatButton(
+                  child: Text("Esqueci a Senha"),
+                  onPressed: () {
+                    Navigator.push(
+                            context, 
+                            MaterialPageRoute(
+                                 builder: (context) => null,
+                            ),
+                    );
+                  },
+             ),           
+           
+          ),
+          SizedBox(height: 40),
+          Container(
+            height: 60,
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end:   Alignment.topLeft,
+                        stops: [0.3,1],
+                        colors: [
+                            Color(0xFFF58524),
+                            Color(0XFFF92B7F),
+                        ],
+
+                 ),
+                borderRadius: BorderRadius.all(
+                      Radius.circular(5)
+                  ), 
+            ),
+            child: botaoLogin,
+            
+          ),        
+            SizedBox(height: 50),
+           Container(
+              height: 40,
+              alignment: Alignment.centerRight,
+              child: FlatButton(
+                  child: footer,
+                  onPressed: () {
+                    Navigator.push(
+                            context, 
+                            MaterialPageRoute(
+                                 builder: (context) => null,
+                            ),
+                    );
+                  },
+             ),           
+           
+          ),
+           
+        ],
+      ),
+    ));
+  }
+    
+   final campoLogin =TextFormField(
+               keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                  labelText: "Login",
+                  labelStyle: TextStyle(
+                    color: Colors.black38,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                )),
+            style: TextStyle(fontSize: 20),
+          );
+
+   final campoPassword =  TextFormField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Password",
+                labelStyle: TextStyle(
+                    color: Colors.black38,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+              ),
+            ),
+            style: TextStyle(fontSize: 20),
+          );
+
+   final botaoLogin = SizedBox.expand(
+              child: FlatButton(
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,                          
+                          children: <Widget>[
+                             Text(
+                               "Entrar",
+                               style: TextStyle(
+                                 fontWeight: FontWeight.bold,
+                                 color: Colors.white,
+                                 fontSize: 20,
+                               ),
+                               textAlign: TextAlign.center,
+                             ),
+                             Container(
+                               child: SizedBox(
+                                    child: Image.asset("assets/bone.png") ,
+                                    height: 28,
+                                    width: 28,
+                                 ),
+                             )
+                          ],
+                      ),
+                      onPressed: (){},
+                ),
+            );
+
+    final footer = Container(                         
+                   
+                   child: Row(
+                      
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,    
+                     crossAxisAlignment: CrossAxisAlignment.start,                      
+                        children: <Widget>[
+                              new FlatButton(  
+                                 child:  Text(  "OS Food", textAlign: TextAlign.start,),
+                                 onPressed: null,
+                              ),    
+                              new FlatButton(  
+                                 child:  Text(  "Contratar", textAlign: TextAlign.end,),
+                                 onPressed: null,
+                              ),    
+                             ],
+                     ),
+                      // child: FlatButton(
+                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,                          
+                      //     children: <Widget>[
+                      //        Text(
+                      //          "Empresa",
+                      //          style: TextStyle(
+                      //            fontWeight: FontWeight.bold,
+                      //            color: Colors.white,
+                      //            fontSize: 20,
+                      //          ),
+                      //          textAlign: TextAlign.center,
+                      //        ),
+                      //          Container(
+                      //          child: SizedBox(
+                      //               child: Text("CADASTRAR"),
+                      //               height: 28,
+                      //               width: 28,
+                      //            ),
+                      //        ),
+                             
+                      //     ],
+                      // ),
+                      // onPressed: (){},
+                );
+         
+
+}
